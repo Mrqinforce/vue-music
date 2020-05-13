@@ -4,6 +4,7 @@
     <div class="bottom">
       <appfooter />
     </div>
+     <router-view />
   </div>
 </template>
 

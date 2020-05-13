@@ -1,49 +1,111 @@
 <template>
   <div id="appheader">
-    <div class="icon">
-      <van-icon name="wap-nav" />
+    <div class="flex">
+      <div class="icon">
+        <van-cell @click="showPopup">
+          <van-icon name="wap-nav" />
+        </van-cell>
+        <van-popup
+          v-model="show"
+          round
+          position="left"
+          :style="{ width: '70%', height: '100%' }"
+        >
+          <sidebar />
+        </van-popup>
+      </div>
+      <div class="title">VUE-MUSIC</div>
+      <div class="icon">
+        <router-link to="/search">
+          <van-icon name="search" />
+        </router-link>
+      </div>
     </div>
     <div class="wrap">
-      <van-tabs v-model="active" animated>
-        <van-tab
-          v-for="(item, index) in tab"
-          :title="item.title"
-          :key="index"
-          >{{ item.content }}</van-tab
-        >
-      </van-tabs>
+      <van-row>
+        <router-link to="/sheet" tag="div">
+          <van-col>推荐</van-col>
+        </router-link>
+        <router-link to="/ranking" tag="div">
+          <van-col>排行榜</van-col>
+        </router-link>
+        <router-link to="/singer" tag="div">
+          <van-col>歌手</van-col>
+        </router-link>
+      </van-row>
+    </div>
+    <div class="cover">
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
+import sidebar from "./Sidebar";
 export default {
   name: "appheader",
+  components: {
+    sidebar
+  },
   data() {
     return {
       active: 1,
-      tab: [
-        { title: "我的", content: "我的1" },
-        { title: "发现", content: "发现1" },
-        { title: "视频", content: "视频1" }
-      ]
+      show: false,
+      tel: "",
+      text: "",
+      digit: "",
+      number: "",
+      password: ""
     };
+  },
+  methods: {
+    showPopup() {
+      this.show = true;
+    },
+    onConfirm(date) {
+      this.show = false;
+      this.text = `选择了 ${date.length} 个日期`;
+    }
   }
 };
 </script>
 <style scoped>
-#appheader {
+.flex {
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(210, 69, 55);
 }
-.icon {
-  flex: 2;
-}
-.wrap {
-  flex: 8;
+.icon .van-cell {
+  background: rgb(210, 69, 55);
 }
 .icon i {
   font-size: 2rem;
   cursor: pointer;
+}
+.title {
+  font-weight: 600;
+  color: #ffffff;
+}
+.wrap {
+  width: 100%;
+  background: rgb(210, 69, 55);
+  font-size: 0.8rem;
+  height: 2rem;
+}
+.van-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  color: #ffffff;
+}
+.van-row div {
+  margin-left: 1.5rem;
+}
+.cover {
+  height: 100vh;
+  width: 100%;
+  margin-top: 3rem;
 }
 </style>

@@ -4,7 +4,7 @@
       <div class="image">
         <img src="../assets/logo.png" alt />
       </div>
-      <div class="geming">agasgasgas</div>
+      <div class="geming">播放</div>
       <div class="playicon">
         <van-icon name="play-circle-o" class="palyicon" />
       </div>
@@ -44,4 +44,3 @@ export default {
   font-size: 2rem;
 }
 </style>
-    
