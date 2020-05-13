@@ -50,12 +50,12 @@ export default {
   data() {
     return {
       active: 1,
-      show: false,
-      tel: "",
-      text: "",
-      digit: "",
-      number: "",
-      password: ""
+      show: false
+      // tel: "",
+      // text: "",
+      // digit: "",
+      // number: "",
+      // password: ""
     };
   },
   methods: {

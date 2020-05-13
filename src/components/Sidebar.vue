@@ -89,7 +89,7 @@ export default {
         this.$refs.name.innerHTML = "当前无账号,请登录!";
         this.$notify({
           type: "danger",
-          message: "当前没有登录账号，请登录账号"
+          message: "登录状态"
         });
       } else {
         if (this.$store.state.uid == "") {

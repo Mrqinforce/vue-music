@@ -13,6 +13,10 @@ export default new Router({
       component: () => import("../components/Login.vue")
     },
     {
+      path: "/register",
+      component: () => import("../components/Register.vue")
+    },
+    {
       path: "/sidebar",
       component: () => import("../components/Sidebar.vue")
     }
