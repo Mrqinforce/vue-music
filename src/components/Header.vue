@@ -5,12 +5,7 @@
         <van-cell @click="showPopup">
           <van-icon name="wap-nav" />
         </van-cell>
-        <van-popup
-          v-model="show"
-          round
-          position="left"
-          :style="{ width: '70%', height: '100%' }"
-        >
+        <van-popup v-model="show" round position="left" :style="{ width: '70%',height:'100%'}">
           <sidebar />
         </van-popup>
       </div>
@@ -35,7 +30,9 @@
       </van-row>
     </div>
     <div class="cover">
-      <router-view></router-view>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
     </div>
   </div>
 </template>
@@ -51,20 +48,11 @@ export default {
     return {
       active: 1,
       show: false
-      // tel: "",
-      // text: "",
-      // digit: "",
-      // number: "",
-      // password: ""
     };
   },
   methods: {
     showPopup() {
       this.show = true;
-    },
-    onConfirm(date) {
-      this.show = false;
-      this.text = `选择了 ${date.length} 个日期`;
     }
   }
 };
@@ -103,6 +91,7 @@ export default {
 .van-row div {
   margin-left: 1.5rem;
 }
+
 .cover {
   height: 100vh;
   width: 100%;
