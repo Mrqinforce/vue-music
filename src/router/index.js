@@ -28,6 +28,10 @@ export default new Router({
     {
       path: "/user",
       component: () => import("../components/user.vue")
+    },
+    {
+      path: "/singer",
+      component: () => import("../components/singer.vue")
     }
   ]
 });
