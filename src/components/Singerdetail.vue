@@ -10,11 +10,17 @@
       <div class="gedan">
         <img v-lazy="details.img1v1Url" alt />
       </div>
-      <div class="title">{{details.name}}</div>
+      <div class="title">{{ details.name }}</div>
       <div class="wrap">
         <van-tabs animated swipeable>
           <van-tab title="歌曲">
             <hotsong :gid="gid" />
+          </van-tab>
+          <van-tab title="专辑">
+            <album :gid="gid" />
+          </van-tab>
+          <van-tab title="视频">
+            <mv :gid="gid" />
           </van-tab>
           <van-tab title="个人信息">
             <personaldetail :gid="gid" />
@@ -28,11 +34,15 @@
 <script>
 import personaldetail from "./Singerdetail/Personaldetail";
 import hotsong from "./Singerdetail/Hotsong";
+import album from "./Singerdetail/Album";
+import mv from "./Singerdetail/Mv";
 export default {
   name: "songerdetail",
   components: {
     personaldetail,
-    hotsong
+    hotsong,
+    mv,
+    album
   },
   data() {
     return {
